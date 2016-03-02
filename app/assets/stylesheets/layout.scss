@@ -1,0 +1,184 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+html{
+	height: 100%;
+}
+body {
+  line-height: 1;
+  min-height: 100%;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Clearfix */
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Bitter:400,400italic,700);
+
+/**
+COLOR VARIABLES
+**/
+$ButtonBlue: #96CFEA;
+$ButtonText: #004384;
+$ButtonBlueHover: #67C1E5;
+$ButtonBlueShadow: #004384;
+$BGGray: #ececec;
+$Black: #000;
+$White: #fff;
+$Greeting: #222;
+$DarkBlue: #003E5F;
+$Yellow: #F9F980;
+
+/**
+SIZE VARIABLE
+**/
+$footerHeight: 35px;
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Fjalla One', sans-serif;
+  text-align: left;
+  color: $Black;
+  background: $BGGray;
+  position: relative;
+  padding-bottom: $footerHeight + 20px;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.logo {
+  margin: 15px 0;
+  height: 34px;
+  width: 554px;
+  display: block;
+  float: right;
+}
+
+form {
+  label {
+    padding: 30px 0 5px 0;
+    display: inline-block;
+    font-size: 20px;
+    font-family: 'Bitter';
+  }
+  input {
+    width: 100%;
+    height: 30px;
+    max-width: 412px;
+    border-radius: 25px;
+    font-family: 'Bitter', serif;
+  }
+
+  &.logoutForm {
+    height: 100%;
+    input[type="submit"] {
+      border: none;
+      background-color: $Black;
+      color: $White;
+      float: right;
+      padding: 8px 16px;
+      font-family: 'Bitter', serif;
+      font-weight: 700;
+      font-size: 15px;
+      height: 100%;
+      width: auto;
+      &:hover {
+        background-color: $White;
+        color: $ButtonBlue;      
+      }
+    }
+  }
+}
+
+.push {
+  font-family:'Bitter', sans-serif;
+  font-weight: 700; 
+  font-size: 20px;
+  line-height: 20px;
+  text-transform: uppercase;
+  padding: 10px 16px 6px;
+  margin-top: 20px;
+  height: 36px;
+  width: 100%;
+  max-width: 412px;
+  border: none;
+  background-color: $ButtonBlue;
+  box-shadow: 0 3px 0 0 $ButtonBlueShadow;
+  border-radius: 25px;
+  color: $ButtonText;
+  display: inline-block;
+  text-align: center;
+    &:hover {
+      color: $White;
+      background-color: $ButtonBlueHover;
+    }
+}
+
+footer {
+  line-height: $footerHeight;
+  height: $footerHeight;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: $DarkBlue;
+    p {
+      color: $White;
+      display: block;
+      font-family: 'Bitter', serif;
+      font-size: 13px;
+      text-align: center;
+    } 
+}

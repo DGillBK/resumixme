@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<h1>Resumes</h1>
+<% @resumes.each do |resume| %>
+  <a href="/resumes/<%= resume.id%>"><%= resume.name %></a>
+<% end %>
+<%= link_to 'New Resume', new_resume_path %>
+
+

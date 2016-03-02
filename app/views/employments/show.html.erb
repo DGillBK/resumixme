@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @employment.name %>
+</p>
+
+<p>
+  <strong>Startdate:</strong>
+  <%= @employment.startDate %>
+</p>
+
+<p>
+  <strong>Enddate:</strong>
+  <%= @employment.endDate %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @employment.address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @employment.phone %>
+</p>
+
+<%= link_to 'Edit', edit_employment_path(@employment) %> |
+
+
+<h2>positions held</h2>
+<% @positions.each do |position| %>
+    <span><%= position.name %><a href="/employments/<%= @employment.id %>/positions/<%= position.id %>/edit"> | edit</a></span>
+<% end %>
+
+
+<%= render 'positions/form' %> 

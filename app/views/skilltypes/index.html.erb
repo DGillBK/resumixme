@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Skilltypes</h1>
+<% @skilltypes.each do |skillType| %>
+  <a href="/skilltypes/<%= skillType.id%>"><%= skillType.name %></a>
+<% end %>
+
+<%= link_to 'New Skilltype', new_skilltype_path %>

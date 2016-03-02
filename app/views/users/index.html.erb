@@ -1,0 +1,26 @@
+<% if @error %>
+  <div class="error"><%= @error %></div>
+<% end %>
+
+<div class='login'>
+<p class="main">Welcome to Resumix.me</p>
+<p>Please login to view your account.</p>
+<p>Remember that your email and password are case-sensitive.</p>
+
+<form method='POST' action='/login' class="loginForm">
+  <label>EMAIL</label>
+  <input type = 'text' name = 'email'> <br>
+  <label>PASSWORD</label>
+  <input type = 'password' name= 'password'><br><br>
+  <input type = 'hidden' name = 'authenticity_token' value='<%= form_authenticity_token()%>' size = '65'>
+  <button type = 'submit' class="push"> Login </button>
+</form>
+
+</div>
+
+<!-- ///////////////////////////////////////////////// -->
+
+
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'SIGN UP', new_user_path , class: "push"%>

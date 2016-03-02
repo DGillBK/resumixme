@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>resumix.me</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="header clearfix">
+	    <a href="/" class="logo">
+	    	<img src="/assets/resumix_logo.svg" alt="">
+	    </a>
+		<% if current_user %>
+			<div class="greeting">
+				<!-- get the user name from the current_user in the session -->
+				<a href="/profile">Hi, <%= current_user.fname %> </a>
+			</div>
+			<ul>
+			  <li class="tabs"><a href="/skilltypes">skill types</a></li>
+			  <li class="tabs"><a href="/employments">work history</a></li>
+			  <li class="tabs"><a href="/educations">education</a></li>
+			  <li class="tabs"><a href="/languages">languages</a></li>
+			  <li class="tabs"><a href="/interests">Interests</a></li>
+			</ul>
+			<a href="/logout">logout</a>
+		<% end %>
+	</div>
+	<%= yield %>
+
+	<footer class="footer">
+	<p>&copy;resumix.me 2016.</p>
+	</footer>
+
+</body>
+</html>

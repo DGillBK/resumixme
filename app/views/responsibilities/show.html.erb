@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @responsibility.description %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @responsibility.position %>
+</p>
+
+<%= link_to 'Edit', edit_responsibility_path(@responsibility) %> |
+<%= link_to 'Back', responsibilities_path %>
