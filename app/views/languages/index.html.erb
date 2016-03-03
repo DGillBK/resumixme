@@ -11,10 +11,10 @@
 
 			<% @languages.each do |language| %>
 			  <div class='lists'>
-			    <div><%= link_to language.language, language %></div>
-			<!--     <span> - <%= language.fluency %></span> -->
-			    <div class='languages'><%= link_to 'Edit', edit_language_path(language) %></div>
-			    <div class='languages'><%= link_to 'delete', language, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+			    <%= link_to language.language, language, class: "label" %>
+				<%= link_to 'delete', language, method: :delete, data: { confirm: 'Are you sure?' }, class: "button languages" %>
+			    <%= link_to 'Edit', edit_language_path(language), class: "button languages" %>
+			    
 			  	<hr>
 			  </div>
 			<% end %>

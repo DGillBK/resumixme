@@ -113,7 +113,7 @@ body {
   color: $TextGray;
   background: $LightGray;
   position: relative;
-  padding-bottom: $footerHeight + 20px;
+  padding-bottom: $footerHeight;
 }
 
 .education {
@@ -125,7 +125,12 @@ body {
 }
 .skilltypes {
   background-color: $Skilltypes;
-  a{color: white;}
+  a{
+    color: $White;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
   &:hover {
     background-color: darken($Skilltypes, 10% );
   }
@@ -152,29 +157,91 @@ body {
   }
 }
 
+.center {
+  width: 100%;
+  min-height: 100%;
+  color: $White;
+  float: left;
+  background-color: $MediumGray;
+  text-align: center;
+  &>* {
+    margin-left: auto !important;
+    margin-right: auto!important; 
+  }
+}
+
 .left {
   width: 60%;
-  min-height: 100%;
+  min-height: calc(100vh - 160px);
   color: $White;
   padding: 0 100px;
   float: left;
   background-color: $MediumGray;
   text-align: center;
+  position: relative;
 }
-
+.formContainer,
 .listContainer {
   background-color: $White;
   font-family: 'Montserrat';
-  div:nth-child(1) {
-    text-align: left;
+  padding-bottom: 10px;
+  h2 {
+    font-family: 'Bitter';
+    text-transform: uppercase;
+    font-size: 23px;
+    font-weight: 400;
+    margin-top: 20px;
+  }
+  .actions {
+    margin-top: 30px;
+  }
+  .label {
     font-size: 18px;
     text-transform: uppercase;
+    float: left;
   }
-  div:nth-child(2),
-  div:nth-child(3) {
+  .button {
     font-size: 15px;
+    line-height: 15px;
     text-transform: uppercase;
+    margin-left: 10px;
+    color: $White;
+    padding: 5px 10px; 
   }
+  hr {
+    float: left;
+    width: 100%;
+  }
+  div:last-of-type {
+    padding-bottom: 10px;
+    hr {
+      display: none;
+    }
+  }
+  a {
+    padding: 0 10px;
+  }
+  .lists {
+    a {
+      padding: 10px 20px;
+    }
+    .button {
+      float: right;
+      display: inline-block;
+    }
+  }
+}
+.formContainer {
+  margin: 40px;
+  max-width: 600px;  
+}
+.listContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(50vw - 40px);
+  transform: translate(-50%, -50%);
+  text-align: left;
 }
 
 .listTitle {
@@ -185,20 +252,31 @@ body {
   p {
     text-align: center;
     font-size: 25px;
+    line-height: 54px;
     font-weight: 400;
   }
 }
 
 .lists {
   padding: 20px 50px 0;
+  .info {
+    color: $TextGray;
+    p {
+      margin: 10px 0;
+    }
+    div {
+      margin: 10px 0;
+    }
+  }
 }
 
 .right {
   width: 40%;
-  min-height: 100%;
+  min-height: calc(100vh - 160px);
   float: left;
   background-color: $White;
   text-align: center;
+  position: relative;
   div {
     font-family: 'Bitter';
     font-size: 25px;
@@ -206,18 +284,23 @@ body {
     width: 265px;
     margin: auto;
     line-height: 54px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 
 .content-wrapper {
   width: 100%;
+  min-height: calc(100vh - 160px);
   float: left;
   overflow: hidden;
 }
 .content-left,
 .content-right {
   width: 50%;
-  min-height: 100%;
+  min-height: calc(100vh - 35px);
 }
 .content-left {
   color: $White;
@@ -226,7 +309,9 @@ body {
   float: left;
   background-color: $Purple;
   text-align: center;
-  p {
+  .or {
+    margin: 9px 0 -26px;
+    padding-bottom: 9px;
     color: $White;
     font-family: 'Bitter';
     font-weight: 700;
@@ -299,6 +384,9 @@ body {
     float: left;
     line-height: 40px;
       a {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
         color: $White;
         text-transform: uppercase;
       }
@@ -419,7 +507,7 @@ form {
   line-height: 20px;
   text-transform: uppercase;
   padding: 0 16px;
-  margin-top: 20px;
+  margin-top: 30px;
   height: 36px;
   width: 100%;
   max-width: 412px;
@@ -438,6 +526,13 @@ form {
     a {
       padding-top: 8px;
     }
+}
+
+.field {
+  color: $TextGray;
+  input[type="text"] {
+    background-color: $MediumGray;
+  }
 }
 
 footer {

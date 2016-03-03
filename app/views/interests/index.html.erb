@@ -11,9 +11,10 @@
 
 			<% @interests.each do |interest| %>
 		  <div class='lists'>
-		  	<div><%= link_to interest.name, interest %></div>
-		    <div class='interests'><%= link_to 'Edit', edit_interest_path(interest) %></div>
-				<div class='interests'><%= link_to 'delete', interest, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+		  	<%= link_to interest.name, interest, class: "label" %>
+		  	<%= link_to 'delete', interest, method: :delete, data: { confirm: 'Are you sure?' }, class:" button interests" %>
+		    <%= link_to 'Edit', edit_interest_path(interest), class: "button interests" %>
+			
 				<hr>
 			</div>
 			<% end %>

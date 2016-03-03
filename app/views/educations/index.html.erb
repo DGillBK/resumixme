@@ -11,13 +11,10 @@
 
 		<% @educations.each do |education| %>
 		  <div class='lists'>
-		    <div><%= link_to education.name, education %></div>
-<!-- 		    <div><%= education.startDate %></div>
-		    <div><%= education.endDate %></div>
-		    <div><%= education.gpa %></div> -->
-		    <div class='education'><%= link_to 'EDIT', edit_education_path(education) %></div>
-		    <div class='education'><%= link_to 'delete', education, method: :delete, data: { confirm: 'Are you sure?' } %></div>
-			<hr>
+		    <%= link_to education.name, education, class: "label" %>
+		    <%= link_to 'delete', education, method: :delete, data: { confirm: 'Are you sure?' }, class: "education button" %>
+		    <%= link_to 'EDIT', edit_education_path(education), class: "education button" %>
+			<hr>		    
 		  </div> 
 		<% end %>
 	</div>

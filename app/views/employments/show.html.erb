@@ -1,37 +1,44 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @employment.name %>
-</p>
+<div class='center'>
+  <div class='formContainer'>
+    <p id="notice"><%= notice %></p>  
+    <div class='listTitle'>
+      <p><%= @employment.name %><%= link_to 'Edit', edit_employment_path(@employment), class: "button workhistory" %></p>
+    </div>
+    <div class='lists'>
+      <div class="info">
+        <p>
+          <strong>Startdate:</strong>
+          <%= @employment.startDate %>
+        </p>
 
-<p>
-  <strong>Startdate:</strong>
-  <%= @employment.startDate %>
-</p>
+        <p>
+          <strong>Enddate:</strong>
+          <%= @employment.endDate %>
+        </p>
 
-<p>
-  <strong>Enddate:</strong>
-  <%= @employment.endDate %>
-</p>
+        <p>
+          <strong>Address:</strong>
+          <%= @employment.address %>
+        </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @employment.address %>
-</p>
+        <p>
+          <strong>Phone:</strong>
+          <%= @employment.phone %>
+        </p>
+        <h2>positions held</h2>
+        <% @positions.each do |position| %>
+          <div>
+            <a href="/employments/<%= @employment.id%>/positions/<%= position.id %>" title="" class=""><%= position.title %></a> | <a href="/employments/<%= @employment.id %>/positions/<%= position.id %>/edit">edit</a>
+          </div>
+        <% end %>
+      </div>
+ 
+      <div class='listTitle'>
+        <p>Add new position</p>
+      </div>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @employment.phone %>
-</p>
-
-<%= link_to 'Edit', edit_employment_path(@employment) %> |
-
-
-<h2>positions held</h2>
-<% @positions.each do |position| %>
-    <span><a href="/employments/<%= @employment.id%>/positions/<%= position.id %>" title=""><%= position.title %></a> | <a href="/employments/<%= @employment.id %>/positions/<%= position.id %>/edit"> | edit</a></span>
-<% end %>
-
-
-<%= render 'positions/form' %> 
+      <%= render 'positions/form' %>
+    </div>
+  </div>
+</div> 

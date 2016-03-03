@@ -1,24 +1,19 @@
-
-
 <div class='left'>
     <p id="notice"><%= notice %></p>
 
     <div class='listContainer'>
     
         <div class='listTitle'>
-            <p>MY WORK HISTORY</p>
+            <p>WORK HISTORY</p>
         </div>
 
 
         <% @employments.each do |employment| %>
           <div class='lists'>
-            <div><%= link_to employment.name, employment %></div>
-        <!--     <span><%= employment.startDate %></span>
-            <span><%= employment.endDate %></span>
-            <span><%= employment.address %></span>
-            <span><%= employment.phone %></span> -->
-            <div class='workhistory'><%= link_to 'Edit', edit_employment_path(employment) %></div>
-            <div class='workhistory'><%= link_to 'delete', employment, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+            <%= link_to employment.name, employment, class: "label" %>
+            <%= link_to 'delete', employment, method: :delete, data: { confirm: 'Are you sure?' }, class: "button workhistory" %>
+            <%= link_to 'Edit', edit_employment_path(employment), class: "button workhistory" %>
+            
             <hr>
           </div>  
         <% end %>
