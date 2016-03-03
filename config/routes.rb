@@ -1,24 +1,29 @@
 Rails.application.routes.draw do
-  resources :resumes
+  resources :resumes, :only => [:edit, :new, :create, :index, :show, :update]
 
-  resources :users
+  resources :users, :only => [:edit, :new, :create, :index, :show, :update]
   
-  resources :interests
+  resources :interests, :only => [:edit, :new, :create, :index, :show, :update]
   
-  resources :languages
+  resources :languages, :only => [:edit, :new, :create, :index, :show, :update]
 
-  resources :skilltypes do
-    resources :skills, :only => [:edit, :new]
+  resources :skilltypes, :only => [:edit, :new, :create, :index, :show, :update] do
+    resources :skills, :only => [:edit, :new, :create, :update]
   end
 
-  resources :employments do
-    resources :positions, :only => [:edit, :new]
-    resources :responsibilities, :only => [:edit, :new]
+  resources :employments, :only => [:edit, :new, :create, :index, :show, :update] do
+    resources :positions, :only => [:edit, :new, :create, :index, :show, :update] do
+      resources :responsibilities, :only => [:edit, :new, :create, :index, :show, :update]
+    end
   end
 
-  resources :educations do
-    resources :degrees, :only => [:edit, :new]
-    resources :achievements, :only => [:edit, :new]
+  resources :positions, :only => [:edit, :new, :create, :index, :show, :update] do
+    resources :responsibilities, :only => [:edit, :new, :create, :index, :show, :update]
+  end
+
+  resources :educations, :only => [:edit, :new, :create, :index, :show, :update] do
+    resources :degrees, :only => [:edit, :new, :create, :update]
+    resources :achievements, :only => [:edit, :new, :create, :update]
   end
 
 

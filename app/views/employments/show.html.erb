@@ -30,7 +30,7 @@
 
 <h2>positions held</h2>
 <% @positions.each do |position| %>
-    <span><%= position.name %><a href="/employments/<%= @employment.id %>/positions/<%= position.id %>/edit"> | edit</a></span>
+    <span><a href="/employments/<%= @employment.id%>/positions/<%= position.id %>" title=""><%= position.title %></a> | <a href="/employments/<%= @employment.id %>/positions/<%= position.id %>/edit"> | edit</a></span>
 <% end %>
 
 

@@ -16,6 +16,27 @@ class ResumesController < ApplicationController
   # GET /resumes/new
   def new
     @resume = Resume.new
+    @interests = Interest.where(user_id: current_user.id)
+    @languages = Language.where(user_id: current_user.id)
+
+    @educations = Education.where(user_id: current_user.id)
+    @educations.each do | education |
+      education.degrees = Degree.where(education_id: education.id)
+    end 
+
+    @employments = Employment.where(user_id: current_user.id)
+    @employments.each do | employment |
+      employment.positions = Position.where(employment_id: employment.id)
+      employment.positions.each do | position |
+        position.responsibilities = Responsibility.where(position_id: position.id)
+      end
+    end
+
+    @skilltypes = Skilltype.where(user_id: current_user.id)
+    @skilltypes.each do | skilltype |
+      skilltype.skills = Skill.where(skilltype_id: skilltype.id )
+    end
+    
   end
 
   # GET /resumes/1/edit
@@ -26,6 +47,9 @@ class ResumesController < ApplicationController
   # POST /resumes.json
   def create
     @resume = Resume.new(resume_params)
+
+
+
 
     respond_to do |format|
       if @resume.save

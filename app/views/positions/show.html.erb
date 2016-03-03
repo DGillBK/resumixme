@@ -15,10 +15,10 @@
   <%= @position.endDate %>
 </p>
 
-<p>
-  <strong>Employment:</strong>
-  <%= @position.employment %>
-</p>
+<h2>Responsibilities</h2>
+<% @responsibilities.each do |responsibility| %>
+	<h3><%= responsibility.description %></h3>
+<% end %>
 
-<%= link_to 'Edit', edit_position_path(@position) %> |
-<%= link_to 'Back', positions_path %>
+<%= render 'responsibilities/form' %> 
+

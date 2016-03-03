@@ -1,15 +1,12 @@
 class DegreesController < ApplicationController
   before_action :set_degree, only: [:show, :edit, :update, :destroy]
-
-  # GET /degrees
-  # GET /degrees.json
-  def index
-    @degrees = Degree.all
-  end
+  before_filter :authorize
 
   # GET /degrees/1
   # GET /degrees/1.json
   def show
+    @degree = Degree.new
+    @degrees = Degree.where(education_id: @education.id)
   end
 
   # GET /degrees/new
@@ -19,16 +16,26 @@ class DegreesController < ApplicationController
 
   # GET /degrees/1/edit
   def edit
+    @degree = Degree.find(params[:education_id])
   end
 
   # POST /degrees
   # POST /degrees.json
   def create
-    @degree = Degree.new(degree_params)
+
+    puts("------")
+    puts(params[:education_id])
+    puts("------")
+    
+    @education = Education.find(params[:education_id])
+    puts(@education.inspect)
+    puts("------")
+    
+    @degree = @education.degrees.build(degree_params)
 
     respond_to do |format|
       if @degree.save
-        format.html { redirect_to @degree, notice: 'Degree was successfully created.' }
+        format.html { redirect_to @education, notice: 'Degree was successfully created.' }
         format.json { render :show, status: :created, location: @degree }
       else
         format.html { render :new }
@@ -40,9 +47,11 @@ class DegreesController < ApplicationController
   # PATCH/PUT /degrees/1
   # PATCH/PUT /degrees/1.json
   def update
+    @education = education.find(params[:education_id])
+
     respond_to do |format|
       if @degree.update(degree_params)
-        format.html { redirect_to @degree, notice: 'Degree was successfully updated.' }
+        format.html { redirect_to @education, notice: 'Degree was successfully updated.' }
         format.json { render :show, status: :ok, location: @degree }
       else
         format.html { render :edit }

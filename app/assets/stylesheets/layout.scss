@@ -65,17 +65,19 @@ table {
 /**
 COLOR VARIABLES
 **/
-$ButtonBlue: #96CFEA;
-$ButtonText: #004384;
-$ButtonBlueHover: #67C1E5;
-$ButtonBlueShadow: #004384;
-$BGGray: #ececec;
 $Black: #000;
 $White: #fff;
-$Greeting: #222;
+$ButtonMain: #F7F972;
+$ButtonHover: #FDCF44;
+$ButtonShadow: #5D5D5D;
+$TextGray: #5D5D5D;
+$LightGray: #FBFBFB;
+$MediumGray: #D4D4D3;
 $DarkBlue: #003E5F;
-$Yellow: #F9F980;
-
+$Yellow: #F7F972;
+$Pink: #F64687;
+$Aqua: #4FC3C3;
+$Orange: #F9DC72;
 /**
 SIZE VARIABLE
 **/
@@ -86,40 +88,182 @@ $footerHeight: 35px;
   box-sizing: border-box;
 }
 
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+
 body {
   -webkit-font-smoothing: antialiased;
-  font-family: 'Fjalla One', sans-serif;
+  font-family: 'Bitter', sans-serif;
   text-align: left;
-  color: $Black;
-  background: $BGGray;
+  color: $TextGray;
+  background: $LightGray;
   position: relative;
   padding-bottom: $footerHeight + 20px;
 }
-a {
-  text-decoration: none;
-  color: inherit;
+.content-wrapper {
+  width: 100%;
+  float: left;
+  overflow: hidden;
 }
+.content-left,
+.content-right {
+  width: 50%;
+  min-height: 100%;
+}
+.content-left {
+  color: $White;
+  padding: 320px 65px 0;
+  width: 50%;
+  float: left;
+  background-color: $Aqua;
+  text-align: center;
+  p {
+    color: $White;
+    font-family: 'Bitter';
+    font-weight: 700;
+    font-size: 12px;
+  }
+}
+.content-right {
+  padding: 445px 145px 0;
+  width: 50%;
+  float: left;
+  p {
+    font-family: 'Bitter';
+    font-weight: 700;
+    font-size: 20px;
+    color: $TextGray;
+    text-align: center;
+    line-height: 25px;
+  }
+}
+
+.header {
+  padding: 0 30px 0 25px;
+  height: 86px;
+  float: left;
+  width: 100%;
+  background-color: $LightGray;
+  border-bottom: solid $MediumGray 5px;
+}
+
+.logoNav {
+  margin: 10px 0 0;
+  width: 285px;
+  display: block;
+  float: left;
+}
+
+.greeting {
+  float: right;
+  font-family: 'Bitter';
+  padding-top: 20px;
+  a {
+    font-size: 19px;
+    font-weight: 700;
+  }
+  p {
+    font-family: 'Bitter';
+    font-size: 16px;
+    color: $TextGray;
+  }
+}
+
+.tabs {
+  font-family: 'Bitter';
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  display: block;
+  float: left;
+  width: 100%;
+  li {
+    width: 20%;
+    height: 70px;
+    float: left;
+    line-height: 70px;
+      a {
+        color: $White;
+        text-transform: uppercase;
+      }
+  }
+  li:nth-child(1) {
+    background-color: #4FC3C3;
+  }
+  li:nth-child(2) {
+    background-color: #9F6FD8;
+  }
+  li:nth-child(3) {
+    background-color: #B1D322;
+  }
+  li:nth-child(4) {
+    background-color: #F77CAE;
+  }
+  li:nth-child(5) {
+    background-color: #3FC380;
+  }
+}
+
 .logo {
+  position: absolute;
+  top: 60px;
+  right: 140px;
   margin: 15px 0;
   height: 34px;
-  width: 554px;
+  width: 540px;
   display: block;
   float: right;
+}
+
+.logo-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: $Yellow;
+  transform:skew(0deg,10deg);
+  transform-origin: 100% 0;
+  min-height: 400px
+}
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  font-weight: 700;
+  color: $TextGray;
 }
 
 form {
   label {
     padding: 30px 0 5px 0;
     display: inline-block;
-    font-size: 20px;
+    font-size: 15px;
     font-family: 'Bitter';
+    font-weight: 700;
   }
+
   input {
     width: 100%;
     height: 30px;
     max-width: 412px;
     border-radius: 25px;
     font-family: 'Bitter', serif;
+    font-size: 16px;
+    border: 0;
+    outline: 0;
+    color: $TextGray;
+    padding-left: 20px;
   }
 
   &.logoutForm {
@@ -135,9 +279,10 @@ form {
       font-size: 15px;
       height: 100%;
       width: auto;
+      outline: 0;
       &:hover {
         background-color: $White;
-        color: $ButtonBlue;      
+        color: $ButtonMain;      
       }
     }
   }
@@ -149,21 +294,25 @@ form {
   font-size: 20px;
   line-height: 20px;
   text-transform: uppercase;
-  padding: 10px 16px 6px;
+  padding: 0 16px;
   margin-top: 20px;
   height: 36px;
   width: 100%;
   max-width: 412px;
   border: none;
-  background-color: $ButtonBlue;
-  box-shadow: 0 3px 0 0 $ButtonBlueShadow;
+  outline: 0;
+  background-color: $ButtonMain;
+  box-shadow: 0 3px 0 0 $ButtonShadow;
   border-radius: 25px;
-  color: $ButtonText;
+  color: $TextGray;
   display: inline-block;
   text-align: center;
     &:hover {
       color: $White;
-      background-color: $ButtonBlueHover;
+      background-color: $ButtonHover;
+    }
+    a {
+      padding-top: 8px;
     }
 }
 
@@ -173,7 +322,7 @@ footer {
   width: 100%;
   position: absolute;
   bottom: 0;
-  background-color: $DarkBlue;
+  background-color: $TextGray;
     p {
       color: $White;
       display: block;

@@ -1,5 +1,6 @@
 class EducationsController < ApplicationController
   before_action :set_education, only: [:show, :edit, :update, :destroy]
+  before_filter :authorize
 
   # GET /educations
   # GET /educations.json
@@ -10,6 +11,8 @@ class EducationsController < ApplicationController
   # GET /educations/1
   # GET /educations/1.json
   def show
+    @degree = Degree.new
+    @degrees = Degree.all
   end
 
   # GET /educations/new

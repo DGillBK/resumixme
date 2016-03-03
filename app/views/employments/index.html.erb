@@ -2,36 +2,18 @@
 
 <h1>Listing Employments</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Startdate</th>
-      <th>Enddate</th>
-      <th>Address</th>
-      <th>Phone</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @employments.each do |employment| %>
-      <tr>
-        <td><%= employment.name %></td>
-        <td><%= employment.startDate %></td>
-        <td><%= employment.endDate %></td>
-        <td><%= employment.address %></td>
-        <td><%= employment.phone %></td>
-        <td><%= employment.user %></td>
-        <td><%= link_to 'Show', employment %></td>
-        <td><%= link_to 'Edit', edit_employment_path(employment) %></td>
-        <td><%= link_to 'Destroy', employment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<% @employments.each do |employment| %>
+  <div>
+    <span><%= employment.name %></span>
+    <span><%= employment.startDate %></span>
+    <span><%= employment.endDate %></span>
+    <span><%= employment.address %></span>
+    <span><%= employment.phone %></span>
+    <span><%= link_to 'Show', employment %></span>
+    <span><%= link_to 'Edit', edit_employment_path(employment) %></span>
+    <span><%= link_to 'Destroy', employment, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+  </div>  
+<% end %>
 
 <%= link_to 'New Employment', new_employment_path %>

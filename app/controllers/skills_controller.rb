@@ -33,6 +33,7 @@ class SkillsController < ApplicationController
   # PATCH/PUT /skills/1.json
   def update
     @skilltype = Skilltype.find(params[:skilltype_id])
+    
     respond_to do |format|
       if @skill.update(skill_params)
         format.html { redirect_to @skilltype, notice: 'Skill was successfully updated.' }

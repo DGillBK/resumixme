@@ -6,27 +6,41 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-	<div class="header clearfix">
-	    <a href="/" class="logo">
-	    	<img src="/assets/resumix_logo.svg" alt="">
-	    </a>
-		<% if current_user %>
+<body class="clearfix">
+	
+	<% if current_user %>
+
+		<div class="header clearfix">
+			<div href="/" class="logoNav">
+				<a href="/">
+					<img src="/assets/resumix_logo.svg" alt="">
+				</a>
+			</div>		
 			<div class="greeting">
 				<!-- get the user name from the current_user in the session -->
-				<a href="/profile">Hi, <%= current_user.fname %> </a>
+				<p>Hi, <%= current_user.fname %> </p>
+				<a href="/profile">YOUR PROFILE</a>
+
 			</div>
-			<ul>
-			  <li class="tabs"><a href="/skilltypes">skill types</a></li>
-			  <li class="tabs"><a href="/employments">work history</a></li>
-			  <li class="tabs"><a href="/educations">education</a></li>
-			  <li class="tabs"><a href="/languages">languages</a></li>
-			  <li class="tabs"><a href="/interests">Interests</a></li>
-			</ul>
 			<a href="/logout">logout</a>
-		<% end %>
+		</div>
+
+		<div class="tabs">
+			<ul>
+			  <li><a href="/skilltypes">skill types</a></li>
+			  <li><a href="/employments">work history</a></li>
+			  <li><a href="/educations">education</a></li>
+			  <li><a href="/languages">languages</a></li>
+			  <li><a href="/interests">Interests</a></li>
+			</ul>
+		</div>
+		
+
+	<% end %>
+
+	<div class="content-wrapper">
+		<%= yield %>		
 	</div>
-	<%= yield %>
 
 	<footer class="footer">
 	<p>&copy;resumix.me 2016.</p>

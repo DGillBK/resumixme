@@ -11,7 +11,7 @@ class SkilltypesController < ApplicationController
   # GET /skilltypes/1.json
   def show
     @skill = Skill.new
-    @skills = Skill.all
+    @skills = Skill.where(skilltype_id: @skilltype.id)
   end
 
   # GET /skilltypes/new
@@ -43,7 +43,7 @@ class SkilltypesController < ApplicationController
   # PATCH/PUT /skilltypes/1.json
   def update
 
-    @skilltype = Skilltype.new(skilltype_params)
+    @skilltype = Skilltype.find(params[:skilltype_id])
 
     respond_to do |format|
       if @skilltype.update(skilltype_params)

@@ -1,37 +1,70 @@
-<%= form_for(@resume) do |f| %>
-  <% if @resume.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@resume.errors.count, "error") %> prohibited this resume from being saved:</h2>
+<div class="form-wrapper">
+  
+  <%= form_for(@resume) do |f| %>
+    <% if @resume.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@resume.errors.count, "error") %> prohibited this resume from being saved:</h2>
 
-      <ul>
-      <% @resume.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <ul>
+        <% @resume.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name, "Resume Name" %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :skills %><br>
+      <%= f.text_field :skills %>
+    </div>
+    <div class="field">
+      <%= f.label :languages %><br>
+      <%= f.text_field :languages %>
+    </div>
+    <div class="field">
+      <%= f.label :interests %><br>
+      <%= f.text_field :interests %>
+    </div>
+    
+    <%= f.hidden_field :user_id, :value => current_user.id%>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+    <div>
+      <% @educations.each_with_index do | education, index | %>
+        <h2><%= education.name %></h2>
+
+        <% education.degrees.each do | degree | %>
+          <h3><%= degree.level %></h3>
+          <%=check_box("education", "degree", {:multiple => true}, degree.level, nil)%>
+        <% end %>
       <% end %>
-      </ul>
+    </div>
+    
+    <div>
+      <% @employments.each_with_index do | employment, index | %>
+        <h2><%= employment.name %></h2>
+        <% employment.positions.each_with_index do | position, positionIndex | %>
+          <h3><%= position.title %></h3>
+          <% position.responsibilities.each do | responsiblity | %>
+            <h4><%= responsiblity.description%></h4>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div>
+      <% @skilltypes.each_with_index do | skilltype, index | %>
+        <h2><%= skilltype.name %></h2>
+        <% skilltype.skills.each do | skill | %>
+          <h3><%= skill.name %></h3>
+        <% end %>
+      <% end %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :skills %><br>
-    <%= f.text_field :skills %>
-  </div>
-  <div class="field">
-    <%= f.label :languages %><br>
-    <%= f.text_field :languages %>
-  </div>
-  <div class="field">
-    <%= f.label :interests %><br>
-    <%= f.text_field :interests %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

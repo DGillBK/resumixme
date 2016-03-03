@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302024556) do
+ActiveRecord::Schema.define(version: 20160303021757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20160302024556) do
     t.string   "name"
     t.date     "startDate"
     t.date     "endDate"
-    t.integer  "gpa"
+    t.decimal  "gpa"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -108,6 +108,8 @@ ActiveRecord::Schema.define(version: 20160302024556) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "education"
+    t.string   "employment"
   end
 
   add_index "resumes", ["user_id"], name: "index_resumes_on_user_id", using: :btree

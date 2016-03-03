@@ -24,11 +24,14 @@ class ResponsibilitiesController < ApplicationController
   # POST /responsibilities
   # POST /responsibilities.json
   def create
-    @responsibility = Responsibility.new(responsibility_params)
+
+    # http://stackoverflow.com/questions/22446647/undefined-method-model-url
+    @position = Position.find(params[:position_id])
+    @responsibility = @position.responsibilities.build(responsibility_params)
 
     respond_to do |format|
       if @responsibility.save
-        format.html { redirect_to @responsibility, notice: 'Responsibility was successfully created.' }
+        format.html { redirect_to @position, notice: 'Responsibility was successfully created.' }
         format.json { render :show, status: :created, location: @responsibility }
       else
         format.html { render :new }

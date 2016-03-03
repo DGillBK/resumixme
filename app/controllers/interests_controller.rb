@@ -7,11 +7,6 @@ class InterestsController < ApplicationController
     @interests = Interest.all
   end
 
-  # GET /interests/1
-  # GET /interests/1.json
-  def show
-  end
-
   # GET /interests/new
   def new
     @interest = Interest.new
@@ -28,7 +23,7 @@ class InterestsController < ApplicationController
 
     respond_to do |format|
       if @interest.save
-        format.html { redirect_to @interest, notice: 'Interest was successfully created.' }
+        format.html { redirect_to '/interests', notice: 'Interest was successfully created.' }
         format.json { render :show, status: :created, location: @interest }
       else
         format.html { render :new }
@@ -42,7 +37,7 @@ class InterestsController < ApplicationController
   def update
     respond_to do |format|
       if @interest.update(interest_params)
-        format.html { redirect_to @interest, notice: 'Interest was successfully updated.' }
+        format.html { redirect_to '/interests', notice: 'Interest was successfully updated.' }
         format.json { render :show, status: :ok, location: @interest }
       else
         format.html { render :edit }

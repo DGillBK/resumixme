@@ -23,10 +23,9 @@
     <%= f.label :endDate %><br>
     <%= f.date_select :endDate %>
   </div>
-  <div class="field">
-    <%= f.label :employment_id %><br>
-    <%= f.text_field :employment_id %>
-  </div>
+  
+  <%= f.hidden_field :employment_id, :value => @employment.id %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

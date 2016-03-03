@@ -2,34 +2,15 @@
 
 <h1>Listing Educations</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Startdate</th>
-      <th>Enddate</th>
-      <th>Gpa</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @educations.each do |education| %>
-      <tr>
-        <td><%= education.name %></td>
-        <td><%= education.startDate %></td>
-        <td><%= education.endDate %></td>
-        <td><%= education.gpa %></td>
-        <td><%= education.user %></td>
-        <td><%= link_to 'Show', education %></td>
-        <td><%= link_to 'Edit', edit_education_path(education) %></td>
-        <td><%= link_to 'Destroy', education, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<% @educations.each do |education| %>
+  <div>
+    <span><%= education.name %></span>
+    <span><%= education.startDate %></span>
+    <span><%= education.endDate %></span>
+    <span><%= education.gpa %></span>
+    <span><%= link_to 'Show', education %></span>
+    <span><%= link_to 'Edit', edit_education_path(education) %></span>
+  </div>  
+<% end %>
 
 <%= link_to 'New Education', new_education_path %>

@@ -11,7 +11,7 @@ class EmploymentsController < ApplicationController
   # GET /employments/1.json
   def show
     @position = Position.new
-    @positions = Position.all
+    @positions = Position.where(employment_id: @employment.id)
   end
 
   # GET /employments/new

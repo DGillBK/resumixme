@@ -1,5 +1,13 @@
 class PositionsController < ApplicationController
   before_action :set_position, only: [:show, :edit, :update, :destroy]
+  before_filter :authorize
+
+  # GET /positions/1
+  # GET /positions/1.json
+  def show 
+    @responsibility = Responsibility.new
+    @responsibilities = Responsibility.all
+  end
 
   # GET /positions/new
   def new
@@ -16,7 +24,7 @@ class PositionsController < ApplicationController
   def create
     
     @employment = Employment.find(params[:employment_id])
-    @position = @employment.posititions.build(position_params)
+    @position = @employment.positions.build(position_params)
 
     respond_to do |format|
       if @position.save
@@ -33,6 +41,7 @@ class PositionsController < ApplicationController
   # PATCH/PUT /positions/1.json
   def update
     @employment = Employment.find(params[:employment_id])
+    
     respond_to do |format|
       if @position.update(position_params)
         format.html { redirect_to @position, notice: 'Position was successfully updated.' }
