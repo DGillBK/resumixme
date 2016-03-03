@@ -1,12 +1,26 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Languages</h1>
-<% @languages.each do |language| %>
-  <div>
-    <span><%= language.language %></span>
-    <span> - <%= language.fluency %></span>
-    <span> | <%= link_to 'Edit', edit_language_path(language) %></span>
-  </div>
-<% end %>
 
-<%= link_to 'New Language', new_language_path %>
+<div class='left'>
+    <p id="notice"><%= notice %></p>
+
+    <div class='listContainer'>
+    
+    	<div class='listTitle'>
+			<p>LANGUAGES</p>
+		</div>
+
+			<% @languages.each do |language| %>
+			  <div class='lists'>
+			    <div><%= link_to language.language, language %></div>
+			<!--     <span> - <%= language.fluency %></span> -->
+			    <div class='languages'><%= link_to 'Edit', edit_language_path(language) %></div>
+			    <div class='languages'><%= link_to 'delete', language, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+			  	<hr>
+			  </div>
+			<% end %>
+		</div>
+</div>
+
+<div class='right'>
+	<div class='languages'><%= link_to 'NEW LANGUAGE', new_language_path %></div>
+</div>

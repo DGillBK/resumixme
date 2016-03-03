@@ -18,11 +18,11 @@
 			</div>		
 			<div class="greeting">
 				<!-- get the user name from the current_user in the session -->
-				<p>Hi, <%= current_user.fname %> </p>
+				<p>Hi, <%= current_user.fname %>.<a href="/logout"> Logout?</a> </p>
 				<a href="/profile">YOUR PROFILE</a>
 
 			</div>
-			<a href="/logout">logout</a>
+
 		</div>
 
 		<div class="tabs">

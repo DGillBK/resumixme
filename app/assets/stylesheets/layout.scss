@@ -61,23 +61,27 @@ table {
 }
 
 @import url(https://fonts.googleapis.com/css?family=Bitter:400,400italic,700);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 /**
 COLOR VARIABLES
 **/
 $Black: #000;
 $White: #fff;
-$ButtonMain: #F7F972;
-$ButtonHover: #FDCF44;
+$ButtonMain: #FBFBFB;
+$ButtonHover: #D4D4D3;
 $ButtonShadow: #5D5D5D;
 $TextGray: #5D5D5D;
 $LightGray: #FBFBFB;
 $MediumGray: #D4D4D3;
-$DarkBlue: #003E5F;
-$Yellow: #F7F972;
-$Pink: #F64687;
-$Aqua: #4FC3C3;
-$Orange: #F9DC72;
+$Purple: #8B84D3;
+$Education: #7799CE;
+$Skilltypes: #4FC3C3;
+$Workhistory: #63AEC8;
+$Languages: #8B84D3;
+$Interests: #9F6FD8;
+
+
 /**
 SIZE VARIABLE
 **/
@@ -98,6 +102,8 @@ body,
 html {
   padding: 0;
   margin: 0;
+  color: $TextGray;
+
 }
 
 body {
@@ -109,6 +115,100 @@ body {
   position: relative;
   padding-bottom: $footerHeight + 20px;
 }
+
+.education {
+  background-color: $Education;
+  a{color: white;}
+  &:hover {
+    background-color: darken($Education, 10% );
+  }
+}
+.skilltypes {
+  background-color: $Skilltypes;
+  a{color: white;}
+  &:hover {
+    background-color: darken($Skilltypes, 10% );
+  }
+}
+.workhistory {
+  background-color: $Workhistory;
+  a{color: white;}
+  &:hover {
+    background-color: darken($Workhistory, 10% );
+  }
+}
+.languages {
+  background-color: $Languages;
+  a{color: white;}
+  &:hover {
+    background-color: darken($Languages, 10% );
+  }
+}
+.interests {
+  background-color: $Interests;
+  a{color: white;}
+  &:hover {
+    background-color: darken($Interests, 10% );
+  }
+}
+
+.left {
+  width: 60%;
+  min-height: 100%;
+  color: $White;
+  padding: 0 100px;
+  float: left;
+  background-color: $MediumGray;
+  text-align: center;
+}
+
+.listContainer {
+  background-color: $White;
+  font-family: 'Montserrat';
+  div:nth-child(1) {
+    text-align: left;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+  div:nth-child(2),
+  div:nth-child(3) {
+    font-size: 15px;
+    text-transform: uppercase;
+  }
+}
+
+.listTitle {
+  font-family: 'Bitter';
+  background-color: $TextGray;
+  height: 54px;
+  line-height: 54px;
+  p {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 400;
+  }
+}
+
+.lists {
+  padding: 20px 50px 0;
+}
+
+.right {
+  width: 40%;
+  min-height: 100%;
+  float: left;
+  background-color: $White;
+  text-align: center;
+  div {
+    font-family: 'Bitter';
+    font-size: 25px;
+    height: 54px;
+    width: 265px;
+    margin: auto;
+    line-height: 54px;
+  }
+}
+
 .content-wrapper {
   width: 100%;
   float: left;
@@ -124,7 +224,7 @@ body {
   padding: 320px 65px 0;
   width: 50%;
   float: left;
-  background-color: $Aqua;
+  background-color: $Purple;
   text-align: center;
   p {
     color: $White;
@@ -137,6 +237,7 @@ body {
   padding: 445px 145px 0;
   width: 50%;
   float: left;
+  background-color: $White;
   p {
     font-family: 'Bitter';
     font-weight: 700;
@@ -153,7 +254,7 @@ body {
   float: left;
   width: 100%;
   background-color: $LightGray;
-  border-bottom: solid $MediumGray 5px;
+  border-bottom: solid $MediumGray 1px;
 }
 
 .logoNav {
@@ -167,30 +268,36 @@ body {
   float: right;
   font-family: 'Bitter';
   padding-top: 20px;
-  a {
-    font-size: 19px;
+  a:nth-child(1) {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  a:nth-child(2) {
+    font-size: 17px;
     font-weight: 700;
   }
   p {
     font-family: 'Bitter';
     font-size: 16px;
     color: $TextGray;
+    padding-bottom: 5px;
   }
 }
 
 .tabs {
-  font-family: 'Bitter';
-  font-size: 18px;
-  font-weight: 700;
+  font-family: 'Montserrat';
+  font-size: 16px;
+  font-weight: 400;
   text-align: center;
   display: block;
   float: left;
   width: 100%;
   li {
     width: 20%;
-    height: 70px;
+    height: 40px;
     float: left;
-    line-height: 70px;
+    line-height: 40px;
       a {
         color: $White;
         text-transform: uppercase;
@@ -198,18 +305,33 @@ body {
   }
   li:nth-child(1) {
     background-color: #4FC3C3;
+    &:hover {
+      background-color: darken(#4FC3C3, 10% );
+    }
   }
   li:nth-child(2) {
-    background-color: #9F6FD8;
+    background-color: #63AEC8;
+    &:hover {
+      background-color: darken(#63AEC8, 10% );
+    }
   }
   li:nth-child(3) {
-    background-color: #B1D322;
+    background-color: $Education;
+    &:hover {
+      background-color: darken($Education, 10% );
+    }
   }
   li:nth-child(4) {
-    background-color: #F77CAE;
+    background-color: #8B84D3;
+    &:hover {
+      background-color: darken(#8B84D3, 10% );
+    }
   }
   li:nth-child(5) {
-    background-color: #3FC380;
+    background-color: #9F6FD8;
+    &:hover {
+      background-color: darken(#9F6FD8, 10% );
+    }
   }
 }
 
@@ -229,7 +351,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background-color: $Yellow;
+  background-color: $MediumGray;
   transform:skew(0deg,10deg);
   transform-origin: 100% 0;
   min-height: 400px
@@ -237,6 +359,8 @@ body {
 
 a {
   text-decoration: none;
+  color: $TextGray;
+
 }
 
 h2 {

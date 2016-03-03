@@ -1,16 +1,30 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Educations</h1>
 
-<% @educations.each do |education| %>
-  <div>
-    <span><%= education.name %></span>
-    <span><%= education.startDate %></span>
-    <span><%= education.endDate %></span>
-    <span><%= education.gpa %></span>
-    <span><%= link_to 'Show', education %></span>
-    <span><%= link_to 'Edit', edit_education_path(education) %></span>
-  </div>  
-<% end %>
+<div class='left'>
+	<p id="notice"><%= notice %></p>
+	
+	<div class='listContainer'>
+		
+		<div class='listTitle'>
+			<p>MY EDUCATIONS</p>
+		</div>
 
-<%= link_to 'New Education', new_education_path %>
+		<% @educations.each do |education| %>
+		  <div class='lists'>
+		    <div><%= link_to education.name, education %></div>
+<!-- 		    <div><%= education.startDate %></div>
+		    <div><%= education.endDate %></div>
+		    <div><%= education.gpa %></div> -->
+		    <div class='education'><%= link_to 'EDIT', edit_education_path(education) %></div>
+		    <div class='education'><%= link_to 'delete', education, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+			<hr>
+		  </div> 
+		<% end %>
+	</div>
+</div>
+
+
+<div class='right'>
+	<div class='education'><%= link_to 'NEW EDUCATION', new_education_path %></div>
+</div>
+

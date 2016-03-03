@@ -1,19 +1,29 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Employments</h1>
 
 
-<% @employments.each do |employment| %>
-  <div>
-    <span><%= employment.name %></span>
-    <span><%= employment.startDate %></span>
-    <span><%= employment.endDate %></span>
-    <span><%= employment.address %></span>
-    <span><%= employment.phone %></span>
-    <span><%= link_to 'Show', employment %></span>
-    <span><%= link_to 'Edit', edit_employment_path(employment) %></span>
-    <span><%= link_to 'Destroy', employment, method: :delete, data: { confirm: 'Are you sure?' } %></span>
-  </div>  
-<% end %>
+<div class='left'>
+    <p id="notice"><%= notice %></p>
 
-<%= link_to 'New Employment', new_employment_path %>
+    <div class='listContainer'>
+    
+        <div class='listTitle'>
+            <p>MY WORK HISTORY</p>
+        </div>
+
+
+        <% @employments.each do |employment| %>
+          <div class='lists'>
+            <div><%= link_to employment.name, employment %></div>
+        <!--     <span><%= employment.startDate %></span>
+            <span><%= employment.endDate %></span>
+            <span><%= employment.address %></span>
+            <span><%= employment.phone %></span> -->
+            <div class='workhistory'><%= link_to 'Edit', edit_employment_path(employment) %></div>
+            <div class='workhistory'><%= link_to 'delete', employment, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+            <hr>
+          </div>  
+        <% end %>
+    </div>
+</div>
+
+<div class='right'>
+    <div class='workhistory'><%= link_to 'NEW EMPLOYMENT', new_employment_path %></div>

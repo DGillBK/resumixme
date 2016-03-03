@@ -1,13 +1,26 @@
-<p id="notice"><%= notice %></p>
 
 
-<h1>Listing Languages</h1>
-<% @interests.each do |interest| %>
-  <div>
-    <span><%= interest.name %></span>
-    <span> | <%= link_to 'Edit', edit_interest_path(interest) %></span>
-  </div>
-<% end %>
+<div class='left'>
+    <p id="notice"><%= notice %></p>
 
-<%= link_to 'New Interest', new_interest_path %>
+    <div class='listContainer'>
+    
+    	<div class='listTitle'>
+				<p>INTERESTS</p>
+			</div>
+
+			<% @interests.each do |interest| %>
+		  <div class='lists'>
+		  	<div><%= link_to interest.name, interest %></div>
+		    <div class='interests'><%= link_to 'Edit', edit_interest_path(interest) %></div>
+				<div class='interests'><%= link_to 'delete', interest, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+				<hr>
+			</div>
+			<% end %>
+		</div>
+</div>
+
+<div class='right'>
+	<div class='interests'><%= link_to 'NEW INTEREST', new_interest_path %></div>
+</div>
 

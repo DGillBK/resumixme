@@ -1,8 +1,26 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Skilltypes</h1>
-<% @skilltypes.each do |skillType| %>
-  <a href="/skilltypes/<%= skillType.id%>"><%= skillType.name %></a>
-<% end %>
 
-<%= link_to 'New Skilltype', new_skilltype_path %>
+<div class='left'>
+	<p id="notice"><%= notice %></p>
+	
+	<div class='listContainer'>
+		
+		<div class='listTitle'>
+			<p>SKILL TYPES</p>
+		</div>
+
+		<% @skilltypes.each do |skillType| %>
+		  <div class='lists'>
+		    <div><%= link_to skillType.name, skillType %></div>
+		    <!-- <div class='skilltypes'>< %= link_to 'Edit', edit_skillType_path(skillType) %></div>
+            <div class='skilltypes'>< %= link_to 'delete', skilltype, method: :delete, data: { confirm: 'Are you sure?' } %></div> -->
+			<hr>
+		  </div> 
+		<% end %>
+	</div>
+</div>
+
+
+<div class='right'>
+	<div class='skilltypes'><%= link_to 'NEW SKILLTYPE', new_skilltype_path %></div>
+</div>
