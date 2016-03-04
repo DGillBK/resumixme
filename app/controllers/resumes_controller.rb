@@ -46,20 +46,22 @@ class ResumesController < ApplicationController
   # POST /resumes
   # POST /resumes.json
   def create
-    @resume = Resume.new(resume_params)
+    puts(params)
+    redirect_to "/resumes"
+    # @resume = Resume.new(resume_params)
 
 
 
 
-    respond_to do |format|
-      if @resume.save
-        format.html { redirect_to @resume, notice: 'Resume was successfully created.' }
-        format.json { render :show, status: :created, location: @resume }
-      else
-        format.html { render :new }
-        format.json { render json: @resume.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @resume.save
+    #     format.html { redirect_to @resume, notice: 'Resume was successfully created.' }
+    #     format.json { render :show, status: :created, location: @resume }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @resume.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /resumes/1

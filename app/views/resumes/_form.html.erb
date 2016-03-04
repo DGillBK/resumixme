@@ -17,47 +17,55 @@
       <%= f.label :name, "Resume Name" %><br>
       <%= f.text_field :name %>
     </div>
-    <div class="field">
-      <%= f.label :skills %><br>
-      <%= f.text_field :skills %>
-    </div>
-    <div class="field">
-      <%= f.label :languages %><br>
-      <%= f.text_field :languages %>
-    </div>
-    <div class="field">
-      <%= f.label :interests %><br>
-      <%= f.text_field :interests %>
-    </div>
     
     <%= f.hidden_field :user_id, :value => current_user.id%>
-
-    <div class="actions">
-      <%= f.submit %>
+    <div class='listTitle'>
+      <p>education</p>
     </div>
     <div>
       <% @educations.each_with_index do | education, index | %>
-        <h2><%= education.name %></h2>
+        <div class="listItem">
+          <h2>
+            <%=check_box("education", index)%>
+            <%= education.name %>
+          </h2>
+        </div>
+        
 
-        <% education.degrees.each do | degree | %>
-          <h3><%= degree.level %></h3>
-          <%=check_box("education", "degree", {:multiple => true}, degree.level, nil)%>
+        <% education.degrees.each_with_index do | degree, degreeIndex | %>
+          <div class="listItem">
+          
+            <h3><%=check_box("education", "degree", {:multiple => true}, degreeIndex )%><%= degree.level %></h3>
+          </div>
+          
         <% end %>
       <% end %>
     </div>
     
+    <div class='listTitle'>
+      <p>employment</p>
+    </div>
     <div>
       <% @employments.each_with_index do | employment, index | %>
-        <h2><%= employment.name %></h2>
+        <div class="listItem">
+          <h2><%=check_box("resume", "employment", {:multiple => true}, index)%><%= employment.name %></h2>  
+        </div>
         <% employment.positions.each_with_index do | position, positionIndex | %>
-          <h3><%= position.title %></h3>
-          <% position.responsibilities.each do | responsiblity | %>
-            <h4><%= responsiblity.description%></h4>
-          <% end %>
+          <div class="listItem">
+            <h3><%=check_box("employment", "position", {:multiple => true}, index, nil )%><%= position.title %></h3>
+          </div>
+          <div class="list">
+            <% position.responsibilities.each do | responsiblity | %>
+              <div class="listItem"><h4><%= responsiblity.description%></h4></div>
+            <% end %>
+          </div>
         <% end %>
       <% end %>
     </div>
 
+    <div class='listTitle'>
+      <p>skills</p>
+    </div>
     <div>
       <% @skilltypes.each_with_index do | skilltype, index | %>
         <h2><%= skilltype.name %></h2>
@@ -65,6 +73,9 @@
           <h3><%= skill.name %></h3>
         <% end %>
       <% end %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
 </div>
