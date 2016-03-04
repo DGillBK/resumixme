@@ -27,15 +27,15 @@ class ResumesController < ApplicationController
 
 
 
-    puts("---raw----")
-    puts(interests)
-    puts("---raw----")
-    puts("---to_json----")
-    puts(interests.to_json)
-    puts("---to_json----")
-    puts("---JSON parse----")
+    # puts("---raw----")
+    # puts(interests)
+    # puts("---raw----")
+    # puts("---to_json----")
+    # puts(interests.to_json)
+    # puts("---to_json----")
+    # puts("---JSON parse----")
     # puts(JSON.parse interests)
-    puts("---JSON parse----")
+    # puts("---JSON parse----")
     @resumeHash[:interests] = interests.to_json
 
     skills = @resume[:skills]
@@ -43,9 +43,9 @@ class ResumesController < ApplicationController
     skills = Skilltype.where(id: skills).as_json
     @resume[:skills] = skills
 
-    puts("----resume----")
-    puts(@resume.inspect)
-    puts("----resume----")
+    # puts("----resume----")
+    # puts(@resume.inspect)
+    # puts("----resume----")
 
     mustache_render @resumeHash, 'resume1'
   end
