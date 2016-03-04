@@ -1,13 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div class='center'>
+  	<div class='formContainer'>
+		<div class='listTitle'>
+			<p><%= @skilltype.name %><%= link_to 'Edit', edit_skilltype_path(@skilltype), class: "button skilltypes" %></p>
+		</div>
+		<div class='lists'>
+			<div class='info'>
 
-<p>
-  <strong>Name:</strong>
-  <%= @skilltype.name %>
-</p>
+				<% @skills.each do |skill| %>
+					<p class='subList'><%= skill.name %><a class="button skilltypes" href="/skilltypes/<%= @skilltype.id %>/skills/<%= skill.id %>/edit">EDIT</a></p>
+				<% end %>
 
-<% @skills.each do |skill| %>
-	<span><%= skill.name %><a href="/skilltypes/<%= @skilltype.id %>/skills/<%= skill.id %>/edit"> | edit</a></span>
-<% end %>
-
-
-<%= render 'skills/form' %> 
+				<%= render 'skills/form' %>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,12 +1,12 @@
 
 <div class='center'>
   <div class='formContainer'>
-    <p id="notice"><%= notice %></p>  
+    <!-- <p id="notice">< %= notice %></p>   -->
     <div class='listTitle'>
       <p><%= @employment.name %><%= link_to 'Edit', edit_employment_path(@employment), class: "button workhistory" %></p>
     </div>
     <div class='lists'>
-      <div class="info">
+      <div class='info'>
         <p>
           <strong>Startdate:</strong>
           <%= @employment.startDate %>
@@ -29,7 +29,7 @@
         <h2>positions held</h2>
         <% @positions.each do |position| %>
           <div>
-            <a href="/employments/<%= @employment.id%>/positions/<%= position.id %>" title="" class=""><%= position.title %></a> | <a href="/employments/<%= @employment.id %>/positions/<%= position.id %>/edit">edit</a>
+            <p class='subList'><a href="/employments/<%= @employment.id%>/positions/<%= position.id %>"><%= position.title %></a><a class="button workhistory" href="/employments/<%= @employment.id %>/positions/<%= position.id %>/edit">EDIT</a></p>
           </div>
         <% end %>
       </div>
