@@ -14,21 +14,40 @@ class ResumesController < ApplicationController
 
     require 'json'
 
+    # @resume[:userName] = "testing"
+
+    @resumeHash = {}
+
+    @resumeHash[:userName] = current_user.fname + " " + current_user.lname
+    @resumeHash[:name] = @resume[:name]
+
     interests = @resume[:interests]
     interests = JSON.parse interests
-    interests = Interest.where(id: interests)#.to_json.delete!('\\')
-    # @resume[:interests] = interests
+    interests = Interest.where(id: interests).as_json#.to_json#.delete!('\\')
+
+
+
+    puts("---raw----")
+    puts(interests)
+    puts("---raw----")
+    puts("---to_json----")
+    puts(interests.to_json)
+    puts("---to_json----")
+    puts("---JSON parse----")
+    # puts(JSON.parse interests)
+    puts("---JSON parse----")
+    @resumeHash[:interests] = interests.to_json
 
     skills = @resume[:skills]
     skills = JSON.parse skills
-    skills = Skilltype.where(id: skills).to_s
+    skills = Skilltype.where(id: skills).as_json
     @resume[:skills] = skills
 
     puts("----resume----")
     puts(@resume.inspect)
     puts("----resume----")
 
-    mustache_render @resume, 'resume1'
+    mustache_render @resumeHash, 'resume1'
   end
 
   # GET /resumes/new
