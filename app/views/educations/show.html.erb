@@ -1,35 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class='center'>
+  	<div class='formContainer'>
+		<div class='listTitle'>
+			<p><%= @education.name %><%= link_to 'Edit', edit_education_path(@education), class: "button education" %></p>
+		</div>
+		<div class='lists'>
+			<div class='info'>
+				<p>
+				  <strong>Name:</strong>
+				  <%= @education.name %>
+				</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @education.name %>
-</p>
+				<p>
+				  <strong>Startdate:</strong>
+				  <%= @education.startDate %>
+				</p>
 
-<p>
-  <strong>Startdate:</strong>
-  <%= @education.startDate %>
-</p>
+				<p>
+				  <strong>Enddate:</strong>
+				  <%= @education.endDate %>
+				</p>
 
-<p>
-  <strong>Enddate:</strong>
-  <%= @education.endDate %>
-</p>
+				<p>
+				  <strong>Gpa:</strong>
+				  <%= @education.gpa %>
+				</p>
 
-<p>
-  <strong>Gpa:</strong>
-  <%= @education.gpa %>
-</p>
+				<h2>Degrees</h2>
+				<% @degrees.each do |degree| %>
+				    <span><%= degree.level %><% if degree.completed %> - completed<% end %></span>
+				<% end %>
 
-
-
-<%= link_to 'Edit', edit_education_path(@education) %>
-
-
-
-<h2>Degrees</h2>
-<% @degrees.each do |degree| %>
-    <span><%= degree.level %><% if degree.completed %> - completed<% end %> | <a href="/education/<%= @education.id %>/degree/<%= degree.id %>/edit">edit</a></span>
-<% end %>
-
-
-<%= render 'degrees/form' %> 
+				<%= render 'degrees/form' %>
+			</div>
+		</div>
+	</div>
+</div>

@@ -4,7 +4,7 @@ class EmploymentsController < ApplicationController
   # GET /employments
   # GET /employments.json
   def index
-    @employments = Employment.all
+    @employments = Employment.where(user_id: current_user.id)
   end
 
   # GET /employments/1

@@ -1,11 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class='left'>
 
+    <div class='listContainer'>
+    
+        <div class='listTitle'>
+            <p>RESUMES</p>
+        </div>
+		<% @resumes.each do |resume| %>
+		<div class='lists'>
+		<a href="/resumes/<%= resume.id%>"><%= resume.name %></a>
+		            <hr>
+          </div>  
+        <% end %>
+    </div>
+</div>
 
-
-<h1>Resumes</h1>
-<% @resumes.each do |resume| %>
-  <a href="/resumes/<%= resume.id%>"><%= resume.name %></a>
-<% end %>
-<%= link_to 'New Resume', new_resume_path %>
-
-
+<div class='right'>
+    <div class='resumes'><%= link_to 'NEW RESUME', new_resume_path %></div>

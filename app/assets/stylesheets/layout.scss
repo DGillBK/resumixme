@@ -80,6 +80,7 @@ $Skilltypes: #4FC3C3;
 $Workhistory: #63AEC8;
 $Languages: #8B84D3;
 $Interests: #9F6FD8;
+$Resumes: #3FC380;
 
 
 /**
@@ -114,6 +115,14 @@ body {
   background: $LightGray;
   position: relative;
   padding-bottom: $footerHeight;
+}
+
+.resumes {
+  background-color: $Resumes;
+  a{color: white;}
+  &:hover {
+    background-color: darken($Resumes, 10% );
+  }
 }
 
 .education {
@@ -246,6 +255,19 @@ body {
       margin-right: 10px;
       display: inline-block;
     }
+    p.subList {
+      font-family: 'Montserrat';
+      color: $TextGray;  
+      text-align: left;
+      font-size: 15px;
+      height: 35px;
+      line-height: 35px; 
+      width: 50%;
+      margin: 0 auto;
+      .button {
+        padding: 5px 10px;
+      }
+    }
   }
 }
 .formContainer {
@@ -276,6 +298,9 @@ body {
 
 .lists {
   padding: 20px 50px 0;
+  p{
+    color: $TextGray;
+  }
   .info {
     color: $TextGray;
     p {
@@ -462,6 +487,16 @@ body {
   min-height: 400px
 }
 
+// span {
+//   display: block;
+//   width: 100%;
+//   a {
+//   text-align: right;
+//   }
+// }
+
+
+
 a {
   text-decoration: none;
   color: $TextGray;
@@ -521,7 +556,7 @@ form {
   font-family:'Bitter', sans-serif;
   font-weight: 700; 
   font-size: 20px;
-  line-height: 20px;
+  line-height: 36px;
   text-transform: uppercase;
   padding: 0 16px;
   margin-top: 30px;
@@ -534,7 +569,7 @@ form {
   box-shadow: 0 3px 0 0 $ButtonShadow;
   border-radius: 25px;
   color: $TextGray;
-  display: inline-block;
+  display: block;
   text-align: center;
     &:hover {
       color: $White;

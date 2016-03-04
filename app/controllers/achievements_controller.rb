@@ -4,7 +4,7 @@ class AchievementsController < ApplicationController
   # GET /achievements
   # GET /achievements.json
   def index
-    @achievements = Achievement.all
+    @achievements = Achievement.where(user_id: current_user.id)
   end
 
   # GET /achievements/1

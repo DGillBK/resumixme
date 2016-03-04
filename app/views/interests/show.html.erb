@@ -1,14 +1,15 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @interest.name %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @interest.user %>
-</p>
-
-<%= link_to 'Edit', edit_interest_path(@interest) %> |
-<%= link_to 'Back', interests_path %>
+<div class='center'>
+  	<div class='formContainer'>
+		<div class='listTitle'>
+			<p><%= @interest.name %><%= link_to 'Edit', edit_interest_path(@interest), class: "button interests" %></p>
+		</div>
+		<div class='lists'>
+			<div class='info'>
+				<p>
+				  <strong>Name:</strong>
+				  <%= @interest.name %>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

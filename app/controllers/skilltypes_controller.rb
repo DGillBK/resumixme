@@ -4,7 +4,7 @@ class SkilltypesController < ApplicationController
   # GET /skilltypes
   # GET /skilltypes.json
   def index
-    @skilltypes = Skilltype.all
+    @skilltypes = Skilltype.where(user_id: current_user.id)
   end
 
   # GET /skilltypes/1

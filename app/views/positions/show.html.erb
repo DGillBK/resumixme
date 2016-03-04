@@ -1,24 +1,34 @@
-<p id="notice"><%= notice %></p>
+<div class='center'>
+  	<div class='formContainer'>
+    	<!-- <p id="notice">< %= notice % ></p> -->
+		<div class='listTitle'>
+			<p><%= @position.title %><%= link_to 'Edit', edit_position_path(@position), class: "button workhistory" %></p>
+		</div>
+		<div class='lists'>
+			<div class='info'>
+				<p>
+				  <strong>Title:</strong>
+				  <%= @position.title %>
+				</p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @position.title %>
-</p>
+				<p>
+				  <strong>Startdate:</strong>
+				  <%= @position.startDate %>
+				</p>
 
-<p>
-  <strong>Startdate:</strong>
-  <%= @position.startDate %>
-</p>
+				<p>
+				  <strong>Enddate:</strong>
+				  <%= @position.endDate %>
+				</p>
 
-<p>
-  <strong>Enddate:</strong>
-  <%= @position.endDate %>
-</p>
+				<h2>Responsibilities</h2>
+				<% @responsibilities.each do |responsibility| %>
+					<h3><%= responsibility.description %></h3>
+				<% end %>
 
-<h2>Responsibilities</h2>
-<% @responsibilities.each do |responsibility| %>
-	<h3><%= responsibility.description %></h3>
-<% end %>
-
-<%= render 'responsibilities/form' %> 
+<%= render 'responsibilities/form' %>
+	    </div>
+	  </div>
+	</div>
+</div> 
 

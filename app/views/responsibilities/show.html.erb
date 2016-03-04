@@ -1,14 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div class='center'>
+  	<div class='formContainer'>
+    	<!-- <p id="notice">< %= notice % ></p> -->
+		<div class='listTitle'>
+			<p><%= @responsibility.name %><%= link_to 'Edit', edit_responsibility_path(@responsibility), class: "button workhistory" %></p>
+		</div>
+		<div class='lists'>
+			<div class='info'>
+				<p>
+				  <strong>Description:</strong>
+				  <%= @responsibility.description %>
+				</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @responsibility.description %>
-</p>
-
-<p>
-  <strong>Position:</strong>
-  <%= @responsibility.position %>
-</p>
-
-<%= link_to 'Edit', edit_responsibility_path(@responsibility) %> |
-<%= link_to 'Back', responsibilities_path %>
+				<p>
+				  <strong>Position:</strong>
+				  <%= @responsibility.position %>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

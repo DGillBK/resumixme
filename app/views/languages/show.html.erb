@@ -1,14 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div class='center'>
+  	<div class='formContainer'>
+    	<!-- <p id="notice">< %= notice % ></p> -->
+		<div class='listTitle'>
+			<p><%= @language.language %><%= link_to 'Edit', edit_language_path(@language), class: "button languages" %></p>
+		</div>
+		<div class='lists'>
+			<div class='info'>
+				<p>
+	  			<strong>Language:</strong>	
+	  			<%= @language.language %>
+				</p>
 
-<p>
-  <strong>Language:</strong>
-  <%= @language.language %>
-</p>
-
-<p>
-  <strong>Fluency:</strong>
-  <%= @language.fluency %>
-</p>
-
-<%= link_to 'Edit', edit_language_path(@language) %> |
-<%= link_to 'Back', languages_path %>
+				<p>
+				  <strong>Fluency:</strong>
+				  <%= @language.fluency %>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,33 +1,45 @@
-<p id="notice"><%= notice %></p>
+<div class='left'>
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Fname:</strong>
-  <%= @user.fname %>
-</p>
+    <div class='listContainer'>
+    
+        <div class='listTitle'>
+            <p>PROFILE</p>
+        </div>
+        <div class='lists'>
+        <p>
+          <strong>First Name:</strong>
+          <%= @user.fname %>
+        </p>
 
-<p>
-  <strong>Lname:</strong>
-  <%= @user.lname %>
-</p>
+        <p>
+          <strong>Last Name:</strong>
+          <%= @user.lname %>
+        </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+        <p>
+          <strong>Email:</strong>
+          <%= @user.email %>
+        </p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @user.phone %>
-</p>
+        <p>
+          <strong>Phone:</strong>
+          <%= @user.phone %>
+        </p>
 
-<p>
-  <strong>Url:</strong>
-  <%= @user.url %>
-</p>
+        <p>
+          <strong>Url:</strong>
+          <%= @user.url %>
+        </p>
 
-<p>
-  <strong>Linkedin:</strong>
-  <%= @user.linkedin %>
-</p>
+        <p>
+          <strong>Linkedin:</strong>
+          <%= @user.linkedin %>
+        </p>
+      </div>
+    </div>
+</div>
 
-<a href="/profile/edit">edit profile</a>
+<div class='right'>
+    <div class='resumes'><a href="/profile/edit">EDIT PROFILE</a></div>
+</div>

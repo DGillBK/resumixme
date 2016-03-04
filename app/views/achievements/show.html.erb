@@ -1,19 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div class='center'>
+  	<div class='formContainer'>
+		<div class='listTitle'>
+			<p><%= @achievement.name %><%= link_to 'Edit', edit_achievement_path(@achievement), class: "button achievements" %></p>
+		</div>
+		<div class='lists'>
+			<div class='info'>
+				<p>
+				  <strong>Name:</strong>
+				  <%= @achievement.name %>
+				</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @achievement.name %>
-</p>
+				<p>
+				  <strong>Description:</strong>
+				  <%= @achievement.description %>
+				</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @achievement.description %>
-</p>
+				<p>
+				  <strong>Education:</strong>
+				  <%= @achievement.education %>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
 
-<p>
-  <strong>Education:</strong>
-  <%= @achievement.education %>
-</p>
-
-<%= link_to 'Edit', edit_achievement_path(@achievement) %> |
-<%= link_to 'Back', achievements_path %>

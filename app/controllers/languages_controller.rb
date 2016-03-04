@@ -4,7 +4,7 @@ class LanguagesController < ApplicationController
   # GET /languages
   # GET /languages.json
   def index
-    @languages = Language.all
+    @languages = Language.where(user_id: current_user.id)
   end
 
   # GET /languages/new

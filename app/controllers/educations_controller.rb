@@ -5,14 +5,14 @@ class EducationsController < ApplicationController
   # GET /educations
   # GET /educations.json
   def index
-    @educations = Education.all
+    @educations = Education.where(user_id: current_user.id)
   end
 
   # GET /educations/1
   # GET /educations/1.json
   def show
     @degree = Degree.new
-    @degrees = Degree.all
+    @degrees = Degree.where(education_id: @education.id)
   end
 
   # GET /educations/new

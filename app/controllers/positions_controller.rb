@@ -6,7 +6,7 @@ class PositionsController < ApplicationController
   # GET /positions/1.json
   def show 
     @responsibility = Responsibility.new
-    @responsibilities = Responsibility.all
+    @responsibilities = Responsibility.where(position_id: @position.id)
   end
 
   # GET /positions/new
